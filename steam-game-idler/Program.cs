@@ -32,7 +32,7 @@ namespace steam_game_idler
             {
                 // Process is parent, take parent route, initialize "Steam app" (480) to access Steamworks API
                 Environment.SetEnvironmentVariable("SteamAppId", "480", EnvironmentVariableTarget.Process);
-                if (!SteamAPI.Init()) return;
+                while (!SteamAPI.Init()) ;
                 var trayReference = new IdlerTray();
 
                 // Clean up child processes before exiting
